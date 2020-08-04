@@ -33,6 +33,26 @@ namespace WpfHotel
             }
         }
 
+        internal tblManager GetManager(string userName)
+        {
+            using (HotelEntities context = new HotelEntities())
+            {
+                tblAccount account = (from a in context.tblAccounts where a.UserName == userName select a).First();
+                tblManager manager = (from m in context.tblManagers where m.AccountID == account.AccountID select m).First();
+                return manager;
+            }
+        }
+
+        internal tblEmployee GetEmployee(string userName)
+        {
+            using (HotelEntities context = new HotelEntities())
+            {
+                tblAccount account = (from a in context.tblAccounts where a.UserName == userName select a).First();
+                tblEmployee employee = (from e in context.tblEmployees where e.AccountID == account.AccountID select e).First();
+                return employee;
+            }
+        }
+
         internal bool IsEmployee(string userName, string password)
         {
             try

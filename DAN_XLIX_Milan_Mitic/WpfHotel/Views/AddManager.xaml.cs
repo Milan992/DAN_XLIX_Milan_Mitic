@@ -11,19 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfHotel.ViewModels;
 
 namespace WpfHotel.Views
 {
     /// <summary>
-    /// Interaction logic for Owner.xaml
+    /// Interaction logic for AddManager.xaml
     /// </summary>
-    public partial class Owner : Window
+    public partial class AddManager : Window
     {
-        public Owner()
+        public AddManager()
         {
             InitializeComponent();
-            this.DataContext = new OwnerViewModel(this);
         }
     }
 }

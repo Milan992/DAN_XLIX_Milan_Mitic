@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfHotel.Views"
         mc:Ignorable="d"
-        Title="Owner" Height="450" Width="800">
+        Title="Owner" Height="200" Width="300">
     <Grid>
-        
+        <Button Content="Add employee"
+                Command="{Binding AddEmployee, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Left"
+                Margin="10,20,0,0"
+                VerticalAlignment="Top"
+                Width="120" />
+        <Button Content="Add manager"
+                Command="{Binding AddManager, UpdateSourceTrigger=PropertyChanged}"
+                HorizontalAlignment="Left"
+                Margin="10,50,0,0"
+                VerticalAlignment="Top"
+                Width="120" />
     </Grid>
 </Window>
