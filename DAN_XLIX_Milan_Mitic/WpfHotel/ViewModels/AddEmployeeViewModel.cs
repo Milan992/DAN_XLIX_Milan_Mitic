@@ -19,13 +19,27 @@ namespace WpfHotel.ViewModels
 
         public AddEmployeeViewModel(AddEmployee addEmployeeOpen)
         {
+            account = new tblAccount();
             employee = new tblEmployee();
             addEmployee = addEmployeeOpen;
+            engagementsList = service.GetAllEngagements();
         }
 
         #endregion
 
         #region Properties
+
+        private string dateOfBirth;
+
+        public string DateOfBirth
+        {
+            get { return dateOfBirth; }
+            set
+            {
+                dateOfBirth = value;
+                OnPropertyChanged("DateOfBirth");
+            }
+        }
 
         private tblAccount account;
 
@@ -42,7 +56,6 @@ namespace WpfHotel.ViewModels
             }
         }
 
-
         private tblEmployee employee;
 
         public tblEmployee Employee
@@ -57,6 +70,19 @@ namespace WpfHotel.ViewModels
                 OnPropertyChanged("Employee");
             }
         }
+
+        private List<tblEngagement> engagementsList;
+
+        public List<tblEngagement> EngagementsList
+        {
+            get { return engagementsList; }
+            set
+            {
+                engagementsList = value;
+                OnPropertyChanged("EngagementsList");
+            }
+        }
+
 
         #endregion
 
@@ -92,7 +118,15 @@ namespace WpfHotel.ViewModels
 
         private bool CanSaveExecute()
         {
-            return true;
+            if (Account.FullName != null && Account.DateOfBirth != null && Account.Email != null && Account.UserName != null && Account.Pass != null
+                 && Employee.HotelFloor != null && Employee.Gender != null && Employee.Cityzenship != null && employee.EngagementID > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private ICommand close;

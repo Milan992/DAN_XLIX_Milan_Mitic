@@ -33,6 +33,24 @@ namespace WpfHotel
             }
         }
 
+        internal List<tblEngagement> GetAllEngagements()
+        {
+            try
+            {
+                using (HotelEntities context = new HotelEntities())
+                {
+                    List<tblEngagement> list = new List<tblEngagement>();
+                    list = (from x in context.tblEngagements select x).ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write("Exception" + ex.Message.ToString());
+                return null;
+            }
+        }
+
         internal List<string> FillQualificationsList()
         {
             List<string> list = new List<string>();

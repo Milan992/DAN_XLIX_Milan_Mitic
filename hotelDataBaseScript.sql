@@ -67,3 +67,9 @@ EndDate date not null,
 Explanation varchar(30)
 )
 
+insert into tblEngagement(EngagementName)
+values('cleaning');
+insert into tblEngagement(EngagementName)
+values('cooking');
+insert into tblEngagement(EngagementName)
+values('reporting');
