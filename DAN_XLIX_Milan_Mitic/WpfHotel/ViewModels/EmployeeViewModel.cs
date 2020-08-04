@@ -17,7 +17,7 @@ namespace WpfHotel.ViewModels
 
         public EmployeeViewModel(Employee employeeOpen)
         {
-            employee = employeeOpen;
+           employee = employeeOpen;
         }
 
         public EmployeeViewModel(Employee employeeOpen, string userName)
