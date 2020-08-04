@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfHotel.ViewModels;
 
 namespace WpfHotel.Views
 {
@@ -22,6 +23,7 @@ namespace WpfHotel.Views
         public AddManager()
         {
             InitializeComponent();
+            this.DataContext = new AddManagerViewModel(this);
         }
     }
 }

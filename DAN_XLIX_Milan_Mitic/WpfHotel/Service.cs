@@ -33,6 +33,19 @@ namespace WpfHotel
             }
         }
 
+        internal List<string> FillQualificationsList()
+        {
+            List<string> list = new List<string>();
+            list.Add("I");
+            list.Add("II");
+            list.Add("III");
+            list.Add("IV");
+            list.Add("V");
+            list.Add("VI");
+            list.Add("VII");
+            return list;
+        }
+
         internal tblManager GetManager(string userName)
         {
             using (HotelEntities context = new HotelEntities())
@@ -51,6 +64,36 @@ namespace WpfHotel
                 tblEmployee employee = (from e in context.tblEmployees where e.AccountID == account.AccountID select e).First();
                 return employee;
             }
+        }
+
+        internal void AddManager(tblManager manager, tblAccount account, string dateOfBirth)
+        {
+            using (HotelEntities context = new HotelEntities())
+            {
+                DateTime date = DateTime.ParseExact(dateOfBirth, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+
+                tblAccount newAccount = new tblAccount();
+                newAccount.FullName = account.FullName;
+                newAccount.DateOfBirth = date;
+                newAccount.Email = account.Email;
+                newAccount.UserName = account.UserName;
+                newAccount.Pass = account.Pass;
+                context.tblAccounts.Add(newAccount);
+                context.SaveChanges();
+
+                tblManager newManager = new tblManager();
+                newManager.AccountID = newAccount.AccountID;
+                newManager.HotelFloor = manager.HotelFloor;
+                newManager.Experience = manager.Experience;
+                newManager.QualificationsLevel = manager.QualificationsLevel;
+                context.tblManagers.Add(newManager);
+                context.SaveChanges();
+            }
+        }
+
+        internal tblEmployee AddEmployee(tblEmployee employee)
+        {
+            throw new NotImplementedException();
         }
 
         internal bool IsEmployee(string userName, string password)

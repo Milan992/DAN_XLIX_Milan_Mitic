@@ -58,6 +58,39 @@ namespace WpfHotel.ViewModels
             return true;
         }
 
+        private ICommand addManager;
+
+        public ICommand AddManager
+        {
+            get
+            {
+                if (addManager == null)
+                {
+                    addManager = new RelayCommand(param => AddManagerExecute(), param => CanAddManagerExecute());
+                }
+
+                return addManager;
+            }
+        }
+
+        private void AddManagerExecute()
+        {
+            try
+            {
+                AddManager addManager = new AddManager();
+                addManager.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private bool CanAddManagerExecute()
+        {
+            return true;
+        }
+
         #endregion
 
     }
