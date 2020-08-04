@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfHotel.Model;
 
 namespace WpfHotel
 {
@@ -34,12 +35,36 @@ namespace WpfHotel
 
         internal bool IsEmployee(string userName, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (HotelEntities context = new HotelEntities())
+                {
+                    tblAccount account = (from a in context.tblAccounts where a.UserName == userName && a.Pass == password select a).First();
+                    tblEmployee employee = (from e in context.tblEmployees where e.AccountID == account.AccountID select e).First();
+                }
+                return true;
+            }
+            catch 
+            {
+                return false;
+            }
         }
 
         internal bool IsManager(string userName, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (HotelEntities context = new HotelEntities())
+                {
+                    tblAccount account = (from a in context.tblAccounts where a.UserName == userName && a.Pass == password select a).First();
+                    tblManager manager = (from m in context.tblManagers where m.AccountID == account.AccountID select m).First();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
