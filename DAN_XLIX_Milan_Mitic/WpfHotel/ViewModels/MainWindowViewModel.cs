@@ -81,16 +81,16 @@ namespace WpfHotel.ViewModels
                     Owner owner = new Owner();
                     owner.ShowDialog();
                 }
-                //else if (service.IsEmployee(UserName, Password))
-                //{
-                //    Employee employee = new Employee(UserName);
-                //    employee.ShowDialog();
-                //}
-                //else if (service.IsManager(UserName, Password))
-                //{
-                //    Manager manager = new Manager(UserName);
-                //    manager.ShowDialog();
-                //}
+                else if (service.IsEmployee(UserName, Password))
+                {
+                    Employee employee = new Employee(UserName);
+                    employee.ShowDialog();
+                }
+                else if (service.IsManager(UserName, Password))
+                {
+                    Manager manager = new Manager(UserName);
+                    manager.ShowDialog();
+                }
                 else
                 {
                     MessageBox.Show("Username or password incorrect.");

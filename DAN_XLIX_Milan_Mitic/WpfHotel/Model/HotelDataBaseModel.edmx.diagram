@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3a6c88be6a6d4b9fab7c10d9c33aa7eb" Name="Diagram1">
+        <EntityTypeShape EntityType="HotelModel.tblAccount" Width="1.5" PointX="1.125" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.tblApplication" Width="1.5" PointX="9.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.tblApplicationStatu" Width="1.5" PointX="7.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.tblEmployee" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.tblEngagement" Width="1.5" PointX="1.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.tblManager" Width="1.5" PointX="5" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="HotelModel.FK__tblEmploy__Accou__39237A9A" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FK__tblManage__Accou__3DE82FB7" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FK__tblApplic__Appli__43A1090D" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FK__tblEmploy__Engag__3B0BC30C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
